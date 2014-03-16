@@ -11,6 +11,6 @@ bool Trick::add(const Player &, const Card &){
 	cards.push_back(playerAndCard);
 }
 Player const& Trick::getWinner(){
-	
+	return *(cards.begin());
 }
 
