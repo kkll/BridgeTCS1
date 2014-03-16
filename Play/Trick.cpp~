@@ -22,6 +22,6 @@ Player const& Trick::getWinner(){
 		}
 		if(it->card.suit==denomination && actualWinner.card.suit!=denomination) actualWinner=(*it);
 	}
-	return cards.front();
+	return actualWinner;
 }
 

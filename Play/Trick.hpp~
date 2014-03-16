@@ -14,11 +14,12 @@ struct PlayerAndCard
 {
 	Card card;
 	Player player;
+	PlayerAndCard(const Player &, const Card &);
 };
 
 class Trick {
 	std::vector<PlayerAndCard> cards;
-	Denomination denomination;s
+	Denomination denomination;
 	public:
 		Trick(Denomination denomination);
 		bool add(const Player &, const Card &);

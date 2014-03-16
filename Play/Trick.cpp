@@ -5,10 +5,7 @@ class Player;
 
 Trick::Trick(Denomination) : denomination(Denomination) {}
 bool Trick::add(const Player &, const Card &){
-	PlayerAndCard playerAndCard;
-	playerAndCard.card=Card;
-	playerAndCard.player=Player;
-	cards.push_back(playerAndCard);
+	cards.push_back(PlayerAndCard(Player,Card));
 }
 Player const& Trick::getWinner(){
 
