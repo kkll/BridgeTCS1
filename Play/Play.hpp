@@ -5,18 +5,19 @@ enum class myPointsOfCompass {
 	N, E, S, W
 };
 
+using PointsOfCompass = myPointsOfCompass;
+
 class myPlayer {
 public:
-	myPointsOfCompass pointOfCompass;
-	myPointsOfCompass getPointOfCompass()
+	PointsOfCompass pointOfCompass;
+	PointsOfCompass getPointOfCompass() const
 	{
 		return pointOfCompass;
 	}
 };
 
-typedef myPlayer Player;
-typedef int Trump;
-typedef myPointsOfCompass PointsOfCompass;
+using Player = myPlayer;
+using Trump = int;
 
 class Play
 {

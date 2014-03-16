@@ -5,7 +5,7 @@
 
 //using Player = int;
 class myPlayer;
-typedef myPlayer Player;
+using Player = myPlayer;
 
 //KK: zakladam na ten moment, ze nie kompilujemy az Kasia sobie poradzi, w przeciwnym razie... sie pomysli
 //using Card = int;
