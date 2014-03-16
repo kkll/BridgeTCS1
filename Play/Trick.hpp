@@ -3,8 +3,12 @@
 
 #include <vector>
 
-using Player = int;
-using Card = int;
+//using Player = int;
+class myPlayer;
+typedef myPlayer Player;
+
+//KK: zakladam na ten moment, ze nie kompilujemy az Kasia sobie poradzi, w przeciwnym razie... sie pomysli
+//using Card = int;
 
 struct PlayerAndCard
 {
