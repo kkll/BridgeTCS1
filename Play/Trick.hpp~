@@ -19,7 +19,6 @@ struct PlayerAndCard
 class Trick {
 	std::vector<PlayerAndCard> cards;
 	public:
-		Trick(Denomination denomination);
 		bool add(const Player &, const Card &);
 		Player const& getWinner();
 };
