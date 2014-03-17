@@ -3,7 +3,8 @@
 #include "Call.hpp"
 #include "Contract.hpp"
 
-class Bidding 
+
+class Bidding
 {
 public:
 	Bidding();

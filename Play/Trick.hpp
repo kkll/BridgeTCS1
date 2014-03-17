@@ -25,7 +25,7 @@ class Trick {
 	Denomination denomination;
 	public:
 		Trick(Denomination denomination);
-		bool add(const Player &, const Card &);
+		void add(const Player &, const Card &);
 		Player const& getWinner();
 };
 

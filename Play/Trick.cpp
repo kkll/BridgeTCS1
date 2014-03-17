@@ -3,7 +3,7 @@
 
 
 
-PlayerAndCard::PlayerAndCard(const Player & player, const Card & card) : card(card), player(player){}
+PlayerAndCard::PlayerAndCard(const Card & card, const Player & player) : card(card), player(player){}
 
 bool operator ==(Card card,Denomination denomination){
     return static_cast<int> (denomination)==static_cast<int> (card.suit);
@@ -12,10 +12,9 @@ bool operator ==(Card card1,Card card2){
     return card1.suit==card2.suit;
 }
 
-Trick::Trick(Denomination denomination){
-    denomination=denomination;
-}
-bool Trick::add(const Player & player , const Card & card){
+Trick::Trick(Denomination denomination) : denomination(denomination) {}
+
+void Trick::add(const Player & player , const Card & card){
 	cards.push_back(PlayerAndCard(card,player));
 }
 Player const& Trick::getWinner(){

@@ -1,5 +1,5 @@
-#ifndef Trick_hpp
-#define Trick_hpp
+#ifndef Play_hpp
+#define Play_hpp
 
 #include "../Bidding/Contract.hpp"
 #include "Trick.hpp"

@@ -9,7 +9,7 @@ Bidding::Bidding() {
 bool Bidding::makeCall(Call call)
 {
 	//TODO: validation of call.
-	if ( call.type == CallType::Pass ) 
+	if ( call.type == CallType::Pass )
 	{
 		consectutivePasses++;
 		if ( currentContract.level != 0 && consectutivePasses >= 3 )

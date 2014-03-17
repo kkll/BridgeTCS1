@@ -2,14 +2,13 @@
 #define CONTRACT_HPP
 #include "Denomination.hpp"
 
-class myPlayer;
-using Player = myPlayer;
+using Player = int;
 
 struct Contract
 {
 	int level;
 	Denomination denomination;
-	Player& declarer;
+	Player declarer;
 	bool redeal;
 };
 #endif

@@ -1,11 +1,15 @@
 #include "Play.hpp"
 
 //using PointsOfCompass = myPointsOfCompass;
-class Trick;
+
 
 PointsOfCompass myPlayer::getPointOfCompass() const
 {
 	return pointOfCompass;
+}
+
+PointsOfCompass operator++(PointsOfCompass pointsOfCompass){
+    return static_cast<PointsOfCompass>( (static_cast<int>(pointsOfCompass)+1) %4 );
 }
 
 //using Player = myPlayer;
@@ -17,27 +21,28 @@ PointsOfCompass myPlayer::getPointOfCompass() const
 int Play::doPlay (Player players[], Contract contract)
 {
 	int tricksTaken = 0;
-	const Denomination& denomination = contract.denomination;
+	Denomination denomination = contract.denomination;
 	const PointsOfCompass declarerPoC = contract.declarer.getPointOfCompass();
-	PointsOfCompass lastRoundWinner = declarerPoC;
+	PointsOfCompass lastRoundWinnerPoC = declarerPoC;
 
 	for (int trickNr = 0; trickNr < 13; trickNr++)
 	{
-		Trick trick(denomination);
+        Trick trick(denomination);
 		PointsOfCompass playerInd;
 		int i;
-		for (i=0, playerInd = lastRoundWinner; i < 4; i++, playerInd = (playerInd + 1)%4)
+		for (i=0, playerInd = lastRoundWinnerPoC; i < 4; i++, ++playerInd)
 		{
-			Card card;
+			Card card (Rank::ACE, Suit::SPADES);
 			//
-			//wczytywanie karty
+			//TODO wczytywanie karty
 			//
-			trick.add((Player)players[myPointsOfCompass], card);
-			//TODO: czemu wymusza to rzutowanie?? typdef?
+			trick.add(players[static_cast<int>(playerInd)], card);
 		}
-		lastRoundWinner = trick.getWinner().getPointOfCompass();
-		//
-		//dodanie lewy do wyniku
-		//
+		lastRoundWinnerPoC = trick.getWinner().getPointOfCompass();
+
+        if(lastRoundWinnerPoC == declarerPoC) tricksTaken++;
+        else
+        {}//TODO: uzgodniæ czy w Playerze którego dostaniemy bêdzie referencja do partnera
 	}
+	return tricksTaken;
 }
