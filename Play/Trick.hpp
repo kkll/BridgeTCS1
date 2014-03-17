@@ -2,7 +2,7 @@
 #define Trick_hpp
 
 #include <vector>
-
+#include "Card.hpp"
 //using Player = int;
 class myPlayer;
 using Player = myPlayer;
@@ -12,9 +12,9 @@ using Player = myPlayer;
 
 struct PlayerAndCard
 {
-	const Card& card;
-	const Player& player;
-	PlayerAndCard(const Player&, const Card&);
+	const Card & card;
+	const Player & player;
+	PlayerAndCard(const Player &, const Card &);
 };
 
 class Trick {

@@ -2,10 +2,13 @@
 #include "Trick.hpp"
 
 
-PlayerAndCard::PlayerAndCard(const Player& player, const Card& card) : player(player), card(card){}
+
+PlayerAndCard::PlayerAndCard(const Player & player, const Card & card) : player(player), card(card){}
 
 
-Trick::Trick(Denomination) : denomination(Denomination) {}
+Trick::Trick(Denomination denomination){
+    denomination=denomination;
+}
 bool Trick::add(const Player &, const Card &){
 	cards.push_back(PlayerAndCard(Player,Card));
 }
