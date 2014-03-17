@@ -3,7 +3,7 @@
 
 
 
-PlayerAndCard::PlayerAndCard(const Player & player, const Card & card) : player(player), card(card){}
+PlayerAndCard::PlayerAndCard(const Player & player, const Card & card) : card(card), player(player){}
 
 
 Trick::Trick(Denomination denomination){

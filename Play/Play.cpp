@@ -1,7 +1,7 @@
 #include "Play.hpp"
 
-
 //using PointsOfCompass = myPointsOfCompass;
+class Trick;
 
 PointsOfCompass myPlayer::getPointOfCompass() const
 {
@@ -14,10 +14,13 @@ PointsOfCompass myPlayer::getPointOfCompass() const
 /* Returns the number of tricks taken. It's up to the caller to convert it into points result. */
 /* declarer = rozgrywajacy
  * ?? Should take the denomination or the whole contract as an argument?? */
-int Play::doPlay (Player players[], PointsOfCompass declarer, Denomination denomination)
+int Play::doPlay (Player players[], Contract contract)
 {
 	int tricksTaken = 0;
-	PointsOfCompass lastRoundWinner = declarer;
+	const Denomination& denomination = contract.denomination;
+	const PointsOfCompass declarerPoC = contract.declarer.getPointOfCompass();
+	PointsOfCompass lastRoundWinner = declarerPoC;
+
 	for (int trickNr = 0; trickNr < 13; trickNr++)
 	{
 		Trick trick(denomination);

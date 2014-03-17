@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Card.hpp"
+#include "../Bidding/Denomination.hpp"
 //using Player = int;
 class myPlayer;
 using Player = myPlayer;
