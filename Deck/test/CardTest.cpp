@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+/*#include <gtest/gtest.h>
 #include "../Card.hpp"
 
 TEST(CardTest, QueenOfHearts)
@@ -13,4 +13,4 @@ TEST(CardTest, JackOfClubs)
 	Card jackOfClubs = Card(Rank::JACK, Suit::CLUBS);
 	ASSERT_EQ(jackOfClubs.rank, Rank::JACK);
 	ASSERT_EQ(jackOfClubs.suit, Suit::CLUBS);
-}
+}*/

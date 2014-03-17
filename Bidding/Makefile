@@ -12,7 +12,7 @@ test : $(TESTEXECUTABLE)
 	./$(TESTEXECUTABLE)
 
 $(TESTEXECUTABLE) : $(OBJECTS) $(TESTOBJECT)
-	$(CC) $(LDFLAGS) $(TESTFLAGS) $^ -o $@ 
+	$(CC) $(LDFLAGS) $(TESTFLAGS) $^ -o $@
 
 %.o : %.cpp
 	$(CC) $(CFLAGS) $^ -o $@

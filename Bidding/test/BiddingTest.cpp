@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+/*#include <gtest/gtest.h>
 #include "../Bidding.hpp"
 
 class BiddingTest: public ::testing::Test
@@ -22,3 +22,4 @@ TEST_F(BiddingTest, FourPasses) {
 	bidding.makeCall(pass);
 	ASSERT_EQ(bidding.getContract().redeal, true);
 }
+*/
