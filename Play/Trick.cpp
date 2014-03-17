@@ -5,10 +5,6 @@
 
 PlayerAndCard::PlayerAndCard(const Card & card, const Player & player) : card(card) , player(player) {}
 
-PlayerAndCard& PlayerAndCard::operator=(const PlayerAndCard& playerAndCard){
-     PlayerAndCard(playerAndCard.card,playerAndCard.player);
-}
-
 bool operator ==(Card card,Denomination denomination){
     return static_cast<int> (denomination)==static_cast<int> (card.suit);
 }
@@ -24,14 +20,14 @@ bool Trick::add(const Player & player , const Card & card){
 }
 Player const& Trick::getWinner(){
 
-	PlayerAndCard actualWinner=cards.front();
+	std::vector<PlayerAndCard>::iterator actualWinner=cards.begin(); //iterator tu to rozwiązanie tymczasowe z braku lepszego na ten moment
 
 	for(std::vector<PlayerAndCard>::iterator it=cards.begin()+1;it!=cards.end();it++){
-		if(((*it).card==denomination && actualWinner.card==denomination)|| ((*it).card==actualWinner.card)){
-			if(actualWinner.card.rank < (*it).card.rank) actualWinner = (*it);
+		if(((*it).card==denomination && (*actualWinner).card==denomination)|| ((*it).card==(*actualWinner).card)){
+			if((*actualWinner).card.rank < (*it).card.rank) actualWinner = it;
 		}
-		if((*it).card==denomination && (!(actualWinner.card==denomination))) actualWinner = (*it);
+		if((*it).card==denomination && (!((*actualWinner).card==denomination))) actualWinner = it;
 	}
-	return actualWinner.player;
+	return (*actualWinner).player;
 }
 
