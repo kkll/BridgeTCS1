@@ -3,26 +3,35 @@
 
 
 
-PlayerAndCard::PlayerAndCard(const Player & player, const Card & card) : player(player), card(card){}
+PlayerAndCard::PlayerAndCard(const Card & card, const Player & player) : card(card) , player(player) {}
 
+PlayerAndCard& PlayerAndCard::operator=(const PlayerAndCard& playerAndCard){
+     PlayerAndCard(playerAndCard.card,playerAndCard.player);
+}
+
+bool operator ==(Card card,Denomination denomination){
+    return static_cast<int> (denomination)==static_cast<int> (card.suit);
+}
+bool operator ==(Card card1,Card card2){
+    return card1.suit==card2.suit;
+}
 
 Trick::Trick(Denomination denomination){
     denomination=denomination;
 }
-bool Trick::add(const Player &, const Card &){
-	cards.push_back(PlayerAndCard(Player,Card));
+bool Trick::add(const Player & player , const Card & card){
+	cards.push_back(PlayerAndCard(card,player));
 }
 Player const& Trick::getWinner(){
 
-	PlayerAndCard* actualWinner=cards.begin();
+	PlayerAndCard actualWinner=cards.front();
 
-	for(vector<PlayerAndCard>::iterator it=cards.begin()+1;it!=cards.end();it++){
-		if((it->card.suit==denomination && actualWinner->card.suit==denomination)
-				|| (it->card.suit==actualWinner->card.suit)){
-			if(actualWinner->card.rank < it->card.rank) actualWinner = it;
+	for(std::vector<PlayerAndCard>::iterator it=cards.begin()+1;it!=cards.end();it++){
+		if(((*it).card==denomination && actualWinner.card==denomination)|| ((*it).card==actualWinner.card)){
+			if(actualWinner.card.rank < (*it).card.rank) actualWinner = (*it);
 		}
-		if(it->card.suit==denomination && actualWinner->card.suit!=denomination) actualWinner = it;
+		if((*it).card==denomination && (!(actualWinner.card==denomination))) actualWinner = (*it);
 	}
-	return actualWinner->player;
+	return actualWinner.player;
 }
 
