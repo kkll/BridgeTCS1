@@ -1,7 +1,6 @@
 #include <vector>
 #include "Trick.hpp"
 
-class Player;
 
 PlayerAndCard::PlayerAndCard(const Player& player, const Card& card) : player(player), card(card){}
 
