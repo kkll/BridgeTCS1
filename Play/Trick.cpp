@@ -1,12 +1,14 @@
 #include <vector>
 #include "Trick.hpp"
 
-class Player;
-
-PlayerAndCard::PlayerAndCard(const Player& player, const Card& card) : player(player), card(card){}
 
 
-Trick::Trick(Denomination) : denomination(Denomination) {}
+PlayerAndCard::PlayerAndCard(const Player & player, const Card & card) : player(player), card(card){}
+
+
+Trick::Trick(Denomination denomination){
+    denomination=denomination;
+}
 bool Trick::add(const Player &, const Card &){
 	cards.push_back(PlayerAndCard(Player,Card));
 }
