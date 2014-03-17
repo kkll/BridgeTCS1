@@ -12,9 +12,9 @@ using Player = myPlayer;
 
 struct PlayerAndCard
 {
-	Card card;
-	Player player;
-	PlayerAndCard(const Player &, const Card &);
+	const Card& card;
+	const Player& player;
+	PlayerAndCard(const Player&, const Card&);
 };
 
 class Trick {
