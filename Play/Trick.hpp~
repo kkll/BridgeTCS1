@@ -2,19 +2,22 @@
 #define Trick_hpp
 
 #include <vector>
+#include "../Deck/Card.hpp"
+#include "../Bidding/Denomination.hpp"
 
 //using Player = int;
 class myPlayer;
-using Player = myPlayer;
+typedef myPlayer Player;
 
-//KK: zakladam na ten moment, ze nie kompilujemy az Kasia sobie poradzi, w przeciwnym razie... sie pomysli
+//KK: zakładam na ten moment, ze nie kompilujemy az Kasia sobie poradzi, w przeciwnym razie... sie pomysli
 //using Card = int;
 
 struct PlayerAndCard
 {
-	Card card;
-	Player player;
-	PlayerAndCard(const Player &, const Card &);
+	const Card & card;
+	const Player & player;
+	PlayerAndCard(const Card &, const Player &);
+	PlayerAndCard& operator=(const PlayerAndCard&);
 };
 
 class Trick {
@@ -22,7 +25,7 @@ class Trick {
 	Denomination denomination;
 	public:
 		Trick(Denomination denomination);
-		bool add(const Player &, const Card &);
+		void add(const Player &, const Card &);
 		Player const& getWinner();
 };
 

@@ -21,13 +21,13 @@ PointsOfCompass operator++(PointsOfCompass pointsOfCompass){
 int Play::doPlay (Player players[], Contract contract)
 {
 	int tricksTaken = 0;
-	Denomination denomination = contract.denomination;
+	Denomination trump = contract.denomination;
 	const PointsOfCompass declarerPoC = contract.declarer.getPointOfCompass();
 	PointsOfCompass lastRoundWinnerPoC = declarerPoC;
 
 	for (int trickNr = 0; trickNr < 13; trickNr++)
 	{
-        Trick trick(denomination);
+        Trick trick(trump);
 		PointsOfCompass playerInd;
 		int i;
 		for (i=0, playerInd = lastRoundWinnerPoC; i < 4; i++, ++playerInd)
