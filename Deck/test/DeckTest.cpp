@@ -1,6 +1,6 @@
 /*#include <gtest/gtest.h>
 #include <vector>
-#include "../Standard52Deck.hpp"
+#include "../Deck.hpp"
 
 TEST(DeckTest, cardsLeftAll)
 {
