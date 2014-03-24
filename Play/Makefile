@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-std=c++0x -c -Wall -O2
+CFLAGS=-std=c++11 -c -Wall -O2
 TESTFLAGS=-lgtest -lgtest_main -pthread
 LDFLAGS=
 SOURCES=Play.cpp
