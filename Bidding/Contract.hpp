@@ -7,8 +7,8 @@ using Player = int;
 struct Contract
 {
 	int level;
-	Denomination denomination;
-	Player declarer;
+	Denomination trump;
+	int declarer;
 	bool redeal;
 };
 #endif

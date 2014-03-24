@@ -2,6 +2,7 @@
 #define Play_hpp
 
 #include <vector>
+//#include <gtest/gtest.h>
 
 #include "../Deck/Card.hpp"
 #include "../Bidding/Contract.hpp"
@@ -28,6 +29,7 @@ class Play
         inline bool defeat(const Card &, const Card &);
 
         public:
+
             Trick(Denomination trump) : trump(trump) {}
 
             void add(int player, const Card & card)
@@ -42,6 +44,12 @@ class Play
 public:
 	/* Returns the number of tricks taken. It's up to the caller to convert it into points result. */
 	int doPlay (Arbiter arbiters[], Contract contract);
+
+	/*friend class TrickTest;
+    FRIEND_TEST(TrickTest, Adding);
+    FRIEND_TEST(TrickTest, NoTrump1);
+    FRIEND_TEST(TrickTest, NoTrump2);
+*/
 };
 
 #endif

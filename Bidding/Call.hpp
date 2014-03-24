@@ -7,10 +7,10 @@ enum class CallType
 	Bid, Double, Redouble, Pass
 };
 
-struct Call 
+struct Call
 {
 	CallType type;
 	int level;
-	Denomination denomination;
+	Denomination trump;
 };
 #endif
