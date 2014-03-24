@@ -24,3 +24,4 @@ clean :
 	rm -f Bidding.o BiddingTest.o BiddingTest
 
 .PHONY : test clean
+
