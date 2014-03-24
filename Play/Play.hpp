@@ -10,8 +10,6 @@
 
 
 
-using Player = int;
-using Trump = int;
 
 class Play
 {
