@@ -1,4 +1,4 @@
-/*#include <gtest/gtest.h>
+#include <gtest/gtest.h>
 #include <vector>
 #include "../Standard52Deck.hpp"
 
@@ -41,4 +41,4 @@ TEST(DeckTest, shuffledContainsEachCard)
 		cards.push_back(deck.dealCard());
 
 	ASSERT_EQ(containsEach(cards), true);
-}*/
+}
