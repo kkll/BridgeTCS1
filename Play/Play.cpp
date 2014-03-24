@@ -1,6 +1,7 @@
 #include "Play.hpp"
 
 
+
 //TODO These two are temporary
 bool operator ==(Card card,Denomination trump){
     return static_cast<int> (trump)==static_cast<int> (card.suit);
