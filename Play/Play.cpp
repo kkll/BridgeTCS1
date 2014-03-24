@@ -3,46 +3,33 @@
 //using PointsOfCompass = myPointsOfCompass;
 
 
-PointsOfCompass myPlayer::getPointOfCompass() const
-{
-	return pointOfCompass;
-}
-
-PointsOfCompass operator++(PointsOfCompass pointsOfCompass){
-    return static_cast<PointsOfCompass>( (static_cast<int>(pointsOfCompass)+1) %4 );
-}
-
 //using Player = myPlayer;
 //using Trump = int;
 
+inline bool arePartners(int player1, int player2)
+{
+    return player1%2 == player2%2;
+}
+
 /* Returns the number of tricks taken. It's up to the caller to convert it into points result. */
-/* declarer = rozgrywajacy
- * ?? Should take the denomination or the whole contract as an argument?? */
-int Play::doPlay (Player players[], Contract contract)
+int Play::doPlay (Arbiter arbiters[], Contract contract)
 {
 	int tricksTaken = 0;
 	Denomination trump = contract.denomination;
-	const PointsOfCompass declarerPoC = contract.declarer.getPointOfCompass();
-	PointsOfCompass lastRoundWinnerPoC = declarerPoC;
+    int declarer = contract.declarer;
+    int lastRoundWinner = declarer;
 
 	for (int trickNr = 0; trickNr < 13; trickNr++)
 	{
         Trick trick(trump);
-		PointsOfCompass playerInd;
-		int i;
-		for (i=0, playerInd = lastRoundWinnerPoC; i < 4; i++, ++playerInd)
+		for (int i=0, playerInd = lastRoundWinner; i < 4; i++, playerInd = (playerInd + 1)%4 )
 		{
-			Card card (Rank::ACE, Suit::SPADES);
-			//
-			//TODO wczytywanie karty
-			//
-			trick.add(players[static_cast<int>(playerInd)], card);
+			Card actCard = arbiters[playerInd].getCard();
+			trick.add(playerInd, actCard);
 		}
-		lastRoundWinnerPoC = trick.getWinner().getPointOfCompass();
+		lastRoundWinner = trick.getWinner();
 
-        if(lastRoundWinnerPoC == declarerPoC) tricksTaken++;
-        else
-        {}//TODO: uzgodniæ czy w Playerze którego dostaniemy bêdzie referencja do partnera
+        if(arePartners(lastRoundWinner, declarer)) tricksTaken++;
 	}
 	return tricksTaken;
 }
